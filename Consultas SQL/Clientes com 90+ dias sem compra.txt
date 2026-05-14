@@ -1,0 +1,18 @@
+SELECT
+    c.estabelecimento,
+    c.cnpj,
+    c.rota,
+    v.vendedor,
+    v.supervisor,
+    MAX(t.data_compra)                            AS ultima_compra,
+    CURRENT_DATE - MAX(t.data_compra)             AS dias_sem_compra,
+    ROUND(AVG(f.valor_venda - f.valor_devolucao), 2) AS ticket_medio
+FROM fat_vendas f
+JOIN dim_cliente  c ON c.id_cliente  = f.id_cliente
+JOIN dim_vendedor v ON v.id_vendedor = f.id_vendedor
+JOIN dim_tempo    t ON t.id_tempo    = f.id_tempo
+GROUP BY
+    c.estabelecimento, c.cnpj, c.rota,
+    v.vendedor, v.supervisor
+HAVING CURRENT_DATE - MAX(t.data_compra) >= 90
+ORDER BY dias_sem_compra DESC;

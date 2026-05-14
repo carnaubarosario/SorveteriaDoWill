@@ -1,0 +1,65 @@
+WITH ultima_compra_cliente AS (
+
+    -- 1. última compra de cada cliente e seu ticket médio histórico
+    SELECT
+        c.id_cliente,
+        c.estabelecimento,
+        c.rota,
+        v.vendedor,
+        v.supervisor,
+        MAX(t.data_compra)                               AS ultima_compra,
+        ROUND(AVG(f.valor_venda - f.valor_devolucao), 2)  AS ticket_medio
+    FROM fat_vendas f
+    JOIN dim_cliente  c ON c.id_cliente  = f.id_cliente
+    JOIN dim_vendedor v ON v.id_vendedor = f.id_vendedor
+    JOIN dim_tempo    t ON t.id_tempo    = f.id_tempo
+    GROUP BY
+        c.id_cliente, c.estabelecimento, c.rota,
+        v.vendedor, v.supervisor
+
+),
+
+inativos AS (
+
+    -- 2. filtra apenas clientes com 60+ dias sem compra
+    SELECT
+        *,
+        CURRENT_DATE - ultima_compra AS dias_sem_compra
+    FROM ultima_compra_cliente
+    WHERE CURRENT_DATE - ultima_compra >= 60
+
+),
+
+resumo_supervisor AS (
+
+    -- 3. agrega por supervisor: total de inativos e receita em risco
+    SELECT
+        supervisor,
+        COUNT(DISTINCT vendedor)    AS total_vendedores,
+        COUNT(id_cliente)           AS total_clientes_inativos,
+        ROUND(AVG(dias_sem_compra))  AS media_dias_sem_compra,
+        ROUND(SUM(ticket_medio), 2)  AS receita_em_risco
+    FROM inativos
+    GROUP BY supervisor
+
+)
+
+-- 4. ranking final com % da receita em risco sobre o total da carteira
+SELECT
+    supervisor,
+    total_vendedores,
+    total_clientes_inativos,
+    media_dias_sem_compra,
+    receita_em_risco,
+
+    RANK() OVER (
+        ORDER BY total_clientes_inativos DESC
+    )                                          AS ranking_inativos,
+
+    ROUND(
+        receita_em_risco
+        / SUM(receita_em_risco) OVER () * 100
+    , 1)                                       AS pct_receita_em_risco
+
+FROM resumo_supervisor
+ORDER BY ranking_inativos;

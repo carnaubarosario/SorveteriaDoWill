@@ -1,0 +1,11 @@
+SELECT
+    t.ano,
+    t.mes_ordem,
+    t.nome_mes,
+    ROUND(SUM(f.valor_venda - f.valor_devolucao), 2) AS receita_liquida,
+    SUM(f.quantidade - f.quantidade_devolucao)       AS volume_liquido,
+    COUNT(DISTINCT f.id_cliente)                      AS clientes_ativos
+FROM fat_vendas f
+JOIN dim_tempo t ON t.id_tempo = f.id_tempo
+GROUP BY t.ano, t.mes_ordem, t.nome_mes
+ORDER BY t.ano, t.mes_ordem;

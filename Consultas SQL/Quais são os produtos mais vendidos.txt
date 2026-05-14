@@ -1,0 +1,10 @@
+SELECT
+    p.produto,
+    p.tipo_embalagem,
+    SUM(f.quantidade)                              AS qtd_total,
+    ROUND(SUM(f.valor_venda - f.valor_devolucao), 2) AS receita_liquida
+FROM fat_vendas f
+JOIN dim_produto p ON p.id_produto = f.id_produto
+GROUP BY p.produto, p.tipo_embalagem
+ORDER BY qtd_total DESC
+LIMIT 20;

@@ -1,0 +1,23 @@
+problemáticas de negócio:
+
+quais são meus clientes regulares (que compram pelo menos uma vez por mês)?
+quais são meus clientes que merecem atenção (60 dias ou próximo sem compras)?
+quais são meus clientes que precisamos tomar uma ação? (clientes com 90+ dias sem compra)
+quais são meus clientes que podemos dar um tratamento diferenciado? (clientes com bons números de vendas e ticket médio alto)
+quanto estou deixando de faturar quando não vendo para os clientes inativos (90+ dias sem compra)?
+quais são nossos produtos mais vendidos?
+quais são nossos produtos menos vendidos e quais podemos tirar do catálogo?
+quais são meus vendedores que conseguem vender para cada cliente da base pelo menos um mês?
+quais são meus vendedores que estão com mais clientes com mais de 60+ dias sem compra? (dar puxão de orelha nesse cara)
+quais municípios estão com pouco volume de venda?
+quais rotas estão trazendo prejuízo (pouco volume, pouco faturamento e baixo ticket médio)?
+quais são as rotas e vendedores com maiores índices de devoluções?
+quais são os principais motivos que estão impactando no número de devoluções?
+onde existe sanozalidade no meu negócio?
+qual período devo me preparar para comprar mais insumos e aumentar a produção para atender todas as demandas?
+qual período tenho pico de vendas?
+qual período começa a queda nas vendas?
+em quais meses preciso me preparar para enfrentar queda nas vendas (época que ninguém compra produtos gelados)?
+existem produtos que pesam mais e pesam menos nas minhas vendas?
+onde devo focar no período de queda de vendas?
+quais supervisores estão com altos números de clientes com + de 60 dias sem compra em suas rotas?

@@ -1,0 +1,11 @@
+SELECT
+    v.vendedor,
+    v.supervisor,
+    COUNT(DISTINCT c.id_cliente)  AS clientes_inativos_60d
+FROM fat_vendas f
+JOIN dim_cliente  c ON c.id_cliente  = f.id_cliente
+JOIN dim_vendedor v ON v.id_vendedor = f.id_vendedor
+JOIN dim_tempo    t ON t.id_tempo    = f.id_tempo
+GROUP BY c.id_cliente, v.vendedor, v.supervisor
+HAVING CURRENT_DATE - MAX(t.data_compra) >= 60
+ORDER BY clientes_inativos_60d DESC;

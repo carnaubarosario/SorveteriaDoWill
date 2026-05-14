@@ -1,0 +1,13 @@
+SELECT
+    p.motivo_devolucao,
+    SUM(f.quantidade_devolucao)            AS qtd_devolvida,
+    ROUND(SUM(f.valor_devolucao), 2)        AS valor_devolvido,
+    ROUND(
+        SUM(f.valor_devolucao)
+        / SUM(SUM(f.valor_devolucao)) OVER () * 100
+    , 1)                                   AS pct_do_total
+FROM fat_vendas f
+JOIN dim_produto p ON p.id_produto = f.id_produto
+WHERE p.motivo_devolucao IS NOT NULL
+GROUP BY p.motivo_devolucao
+ORDER BY valor_devolvido DESC;
