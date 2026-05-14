@@ -154,7 +154,7 @@ Abra `Will Dashboard.pbix` no Power BI Desktop, atualize a conexão com o Postgr
 
 ---
 
-## 7. Imagens dos Dashboards Desenvolvidos
+## 7. Algumas Imagens dos Dashboards Desenvolvidos
 
 ## 📊 Dashboards
 
@@ -162,10 +162,10 @@ Abra `Will Dashboard.pbix` no Power BI Desktop, atualize a conexão com o Postgr
 ![Clientes](https://raw.githubusercontent.com/carnaubarosario/SorveteriaDoWill/main/Imagens%20Dashboards/Dashboard%20Clientes.png)
 
 ### Análise de Produtos
-![Produtos](Imagens Dashboards/produtos.png)
+![Produtos](https://raw.githubusercontent.com/carnaubarosario/SorveteriaDoWill/main/Imagens%20Dashboards/Dashboard%20Produtos.png)
 
 ### Análise de Rotas
-![Rotas](Imagens Dashboards/rotas.png)
+![Rotas](https://raw.githubusercontent.com/carnaubarosario/SorveteriaDoWill/main/Imagens%20Dashboards/Dashboard%20Rotas.png)
 
 
 ## Estrutura do projeto
