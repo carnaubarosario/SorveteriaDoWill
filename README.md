@@ -1,5 +1,13 @@
 # Sorveteria do Will — Data Warehouse & BI
 
+![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14+-336791?style=for-the-badge&logo=postgresql&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power%20BI-Desktop-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
+![Pandas](https://img.shields.io/badge/Pandas-2.0+-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?style=for-the-badge&logo=jupyter&logoColor=white)
+![Star Schema](https://img.shields.io/badge/Modelagem-Star%20Schema-C8731A?style=for-the-badge&logo=databricks&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Concluído-4DBDA0?style=for-the-badge)
+
 Projeto de inteligência comercial construído do zero para uma fábrica de sorvetes de Alagoas. O objetivo é transformar dados brutos de vendas em respostas claras para a operação: quais clientes estão sumindo, quais rotas dão prejuízo, quando preparar estoque e onde focar nos períodos de queda.
 
 ---
