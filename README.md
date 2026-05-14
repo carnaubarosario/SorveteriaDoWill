@@ -159,7 +159,7 @@ Abra `Will Dashboard.pbix` no Power BI Desktop, atualize a conexão com o Postgr
 ## 📊 Dashboards
 
 ### Visão de Clientes
-(Imagens Dashboards/clientes.png)
+(Imagens Dashboards/Dashboard Clientes.png.png)
 
 ### Análise de Produtos
 ![Produtos](Imagens Dashboards/produtos.png)
